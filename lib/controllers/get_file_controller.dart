@@ -9,6 +9,8 @@ class GetFileController extends GetxController {
   final Rx<EpubBook?> book = Rx<EpubBook?>(null);
   final RxBool loading = false.obs;
 
+  final RxInt openedChapterIndex = (-1).obs;
+
   Future<void> pickEpubFile() async {
     final result = await FilePicker.platform.pickFiles(
       type: FileType.custom,
@@ -16,20 +18,26 @@ class GetFileController extends GetxController {
     );
 
     if (result == null) return;
-
     epubFile.value = File(result.files.single.path!);
   }
 
   Future<void> openEpub() async {
-    final file = epubFile.value;
-    if (file == null) return;
+    if (epubFile.value == null) return;
 
     loading.value = true;
 
-    final bytes = await file.readAsBytes();
-    final epubBook = await EpubReader.readBook(bytes);
+    final bytes = await epubFile.value!.readAsBytes();
+    book.value = await EpubReader.readBook(bytes);
 
-    book.value = epubBook;
+    openedChapterIndex.value = -1; // reset
     loading.value = false;
+  }
+
+  void toggleChapter(int index) {
+    if (openedChapterIndex.value == index) {
+      openedChapterIndex.value = -1;
+    } else {
+      openedChapterIndex.value = index;
+    }
   }
 }
