@@ -1,16 +1,40 @@
-# dotbook
+# DotBook | Epub Reader
 
-A new Flutter project.
+Application for reading and opening epub book files.
 
-## Getting Started
+## 📚 Things i learned and dealt with
 
-This project is a starting point for a Flutter application.
+In this project, the first challenge was how to find an epub file from memory and display it in the UI; this was just the beginning, and then I moved on to the main challenge, the epub rendering engine. Since processing and loading epub is a heavy, main-threaded operation, we had freezes and bugs in the UI, which I solved by isolating the epub loading structure. I used the MVC architecture.
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## 💻 Tech Stack
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+**Client:** Dart, Flutter
+
+Packages :
+
+```diff
+! epubx
+
+! permission_handler
+
+! path_provider
+
+! flutter_widget_from_html
+
+! get
+```
+
+
+## 💫 Features
+
+- Search Automatically for .epub files in device
+- Isolated and Smooth ui
+
+
+## 📧 Feedback
+
+If you have any feedback, please reach out to us at ardavaneskandari007@gmail.com
+## 🔒 License
+
+[Licensed by MIT For Ardavan Eskandari](https://choosealicense.com/licenses/mit/)
