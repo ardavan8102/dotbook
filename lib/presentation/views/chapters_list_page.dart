@@ -1,5 +1,6 @@
 import 'package:dotbook/core/controllers/chapters_page_controller.dart';
 import 'package:dotbook/presentation/views/chapter_content_page.dart';
+import 'package:dotbook/presentation/widgets/appbar_with_return_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -15,14 +16,20 @@ class ChaptersListPage extends StatelessWidget {
     final controller = Get.put(ChaptersController(bookPath));
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Chapters'),
-        centerTitle: true,
-      ),
+      appBar: AppBarWithReturnIcon(title: 'Chapters'),
       body: Obx((){
 
         if (controller.loading.value) {
-          return const Center(child: CircularProgressIndicator());
+          return Center(
+            child: Column(
+              mainAxisAlignment: .center,
+              spacing: 12,
+              children: [
+                const CircularProgressIndicator(),
+                Text('Loading Chapters'),
+              ],
+            )
+          );
         }
 
         if (controller.error.value != null) {
@@ -72,3 +79,4 @@ class ChaptersListPage extends StatelessWidget {
     );
   }
 }
+

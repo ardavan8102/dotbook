@@ -18,7 +18,25 @@ class LibraryPage extends StatelessWidget {
       ),
       body: Obx((){
         if (controller.loading.value) {
-          return const CircularProgressIndicator();
+          return Center(
+            child: Column(
+              mainAxisAlignment: .center,
+              spacing: 12,
+              children: [
+                const CircularProgressIndicator(),
+                const Text(
+                  'Scanning your Device ...',
+                  style: TextStyle(fontSize: 18, fontWeight: .bold),
+                  textAlign: .center,
+                ),
+                const Text(
+                  'Finding .epub files in storage',
+                  style: TextStyle(fontSize: 14, fontWeight: .w400),
+                  textAlign: .center
+                ),
+              ],
+            )
+          );
         }
 
         return ListView.builder(

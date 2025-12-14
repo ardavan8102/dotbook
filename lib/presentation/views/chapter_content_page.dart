@@ -1,3 +1,4 @@
+import 'package:dotbook/presentation/widgets/appbar_with_return_icon.dart';
 import 'package:epubx/epubx.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
@@ -9,10 +10,7 @@ class ChapterContentPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(chapter.Title ?? ''),
-        centerTitle: true
-      ),
+      appBar: AppBarWithReturnIcon(title: chapter.Title ?? ''),
       body: Padding(
         padding: const EdgeInsets.all(20),
         child: SingleChildScrollView(
