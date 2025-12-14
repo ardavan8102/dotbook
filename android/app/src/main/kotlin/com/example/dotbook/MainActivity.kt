@@ -1,4 +1,4 @@
-package com.example.dotbook
+package com.dotbook.app
 
 import io.flutter.embedding.android.FlutterActivity
 

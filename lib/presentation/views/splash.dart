@@ -28,7 +28,7 @@ class _SplashScreenState extends State<SplashScreen> {
     // Navigate
     Timer(
       Duration(seconds: 4),
-      () => Get.offAndToNamed(AppRoutes.library),
+      () => Get.offAndToNamed(AppRoutes.home),
     );
   }
 
