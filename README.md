@@ -4,9 +4,9 @@
 
 Application for reading and opening epub book files.
 
-## 📚 Things i learned and dealt with
+<!-- ## 📚 Things i learned and dealt with
 
-In this project, the first challenge was how to find an epub file from memory and display it in the UI; this was just the beginning, and then I moved on to the main challenge, the epub rendering engine. Since processing and loading epub is a heavy, main-threaded operation, we had freezes and bugs in the UI, which I solved by isolating the epub loading structure. I used the MVC architecture.
+In this project, the first challenge was how to find an epub file from memory and display it in the UI; this was just the beginning, and then I moved on to the main challenge, the epub rendering engine. Since processing and loading epub is a heavy, main-threaded operation, we had freezes and bugs in the UI, which I solved by isolating the epub loading structure. I used the MVC architecture. -->
 
 
 ## 💻 Tech Stack

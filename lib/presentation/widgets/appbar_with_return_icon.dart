@@ -11,12 +11,12 @@ class AppBarWithReturnIcon extends StatelessWidget implements PreferredSizeWidge
     return AppBar(
       elevation: 0,
       scrolledUnderElevation: 0,
-      backgroundColor: Colors.white,
+      backgroundColor: AppSolidColors.lightBackGround,
       title: Text(
         title,
         style: TextStyle(
           fontWeight: .bold,
-          color: AppSolidColors.primary
+          color: AppSolidColors.darkCreama
         ),
       ),
       centerTitle: true,
