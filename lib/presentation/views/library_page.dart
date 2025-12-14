@@ -18,23 +18,25 @@ class LibraryPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBarWithReturnIcon(title: 'Library'),
-      body: Obx((){
-        if (controller.loading.value) {
-          return LoadingSpinningLines(text: 'Scanning your Device ...');
-        }
-
-        return ListView.builder(
-          itemCount: controller.books.length,
-          itemBuilder: (context, index) {
-            final book = controller.books[index];
-
-            return Padding(
-              padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
-              child: libraryListViewTile(book, textTheme),
-            );
-          },
-        );
-      }),
+      body: SafeArea(
+        child: Obx((){
+          if (controller.loading.value) {
+            return LoadingSpinningLines(text: 'Scanning your Device ...');
+          }
+        
+          return ListView.builder(
+            itemCount: controller.books.length,
+            itemBuilder: (context, index) {
+              final book = controller.books[index];
+        
+              return Padding(
+                padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
+                child: libraryListViewTile(book, textTheme),
+              );
+            },
+          );
+        }),
+      ),
     );
   }
 

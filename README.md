@@ -1,3 +1,5 @@
+![logo](https://github.com/ardavan8102/dotbook/blob/main/assets/brand/github_wide_logo.png?raw=true)
+
 # DotBook | Epub Reader
 
 Application for reading and opening epub book files.
