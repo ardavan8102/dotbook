@@ -1,3 +1,4 @@
+import 'package:dotbook/consts/colors.dart';
 import 'package:flutter/material.dart';
 
 class AppBarWithReturnIcon extends StatelessWidget implements PreferredSizeWidget {
@@ -11,7 +12,13 @@ class AppBarWithReturnIcon extends StatelessWidget implements PreferredSizeWidge
       elevation: 0,
       scrolledUnderElevation: 0,
       backgroundColor: Colors.transparent,
-      title: Text(title),
+      title: Text(
+        title,
+        style: TextStyle(
+          fontWeight: .bold,
+          color: AppSolidColors.primary
+        ),
+      ),
       centerTitle: true,
     );
   }
