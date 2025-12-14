@@ -1,5 +1,7 @@
-import 'package:dotbook/presentation/views/epub_viewer.dart';
+import 'package:dotbook/core/routes/app_pages.dart';
+import 'package:dotbook/core/routes/app_routes.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,13 +12,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         fontFamily: 'Roboto',
         brightness: Brightness.light
       ),
-      home: const EpubReaderPage(),
+      initialRoute: AppRoutes.library,
+      getPages: AppPages.pages,
     );
   }
 }
