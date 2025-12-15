@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:dotbook/core/models/chapter_meta.dart';
 import 'package:epubx/epubx.dart';
 import 'package:file_picker/file_picker.dart';
@@ -39,12 +38,23 @@ class HomeController extends GetxController {
     final book = await EpubReader.readBook(bytes);
 
     for (int i = 0; i < book.Chapters!.length; i++) {
-      chapters.add(
-        ChapterMeta(
-          title: book.Chapters![i].Title ?? 'Untitled',
-          index: i,
-        ),
-      );
+      if (book.Chapters![i].Title != 'Cover' && book.Chapters![i].Title != 'Frontmatter' && book.Chapters![i].Title != 'Backmatter') {
+        if (book.Chapters![i].Title == 'Start') {
+          chapters.add(
+            ChapterMeta(
+              title: 'All-in-One chapter',
+              index: i,
+            ),
+          );
+        } else {
+          chapters.add(
+            ChapterMeta(
+              title: book.Chapters![i].Title ?? 'No Chapter Name',
+              index: i,
+            ),
+          );
+        }
+      }
     }
 
     loading.value = false;
