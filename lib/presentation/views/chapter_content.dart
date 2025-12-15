@@ -1,7 +1,7 @@
 import 'package:dotbook/consts/colors.dart';
 import 'package:dotbook/core/models/chapter_meta.dart';
 import 'package:dotbook/features/load_chapter_data.dart';
-import 'package:dotbook/presentation/widgets/appbar_with_return_icon.dart';
+import 'package:dotbook/presentation/widgets/appbar/appbar_with_return_icon.dart';
 import 'package:dotbook/presentation/widgets/loading_circle.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';

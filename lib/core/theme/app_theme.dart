@@ -1,3 +1,4 @@
+import 'package:dotbook/core/theme/app_typography.dart';
 import 'package:flutter/material.dart';
 
 class AppTheme {
@@ -9,23 +10,16 @@ class AppTheme {
     textTheme: TextTheme(
 
       // headlines
-      headlineLarge: TextStyle(
-        fontSize: 32,
-        fontWeight: .w800,
-      ),
-
-      headlineSmall: TextStyle(
-        fontSize: 24,
-        fontWeight: .w400
-      ),
+      headlineLarge: AppTypography.headlineBIG,
+      headlineMedium: AppTypography.headlineMEDIUM,
+      headlineSmall: AppTypography.headlineSMALL,
 
 
 
       // Labels
-      labelSmall: TextStyle(
-        fontSize: 14,
-        fontWeight: .w300,
-      ),
+      labelLarge: AppTypography.labelBIG,
+      labelMedium: AppTypography.labelMEDIUM,
+      labelSmall: AppTypography.labelSMALL,
 
     ),
     

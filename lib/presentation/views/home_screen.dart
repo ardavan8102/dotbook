@@ -3,10 +3,10 @@ import 'package:dotbook/consts/strings.dart';
 import 'package:dotbook/core/controllers/home_controller.dart';
 import 'package:dotbook/core/models/chapter_meta.dart';
 import 'package:dotbook/presentation/views/chapter_content.dart';
-import 'package:dotbook/presentation/widgets/custom_button.dart';
-import 'package:dotbook/presentation/widgets/drawer_menu.dart';
+import 'package:dotbook/presentation/widgets/button/custom_button.dart';
+import 'package:dotbook/presentation/widgets/drawer/drawer_menu.dart';
 import 'package:dotbook/presentation/widgets/loading_circle.dart';
-import 'package:dotbook/presentation/widgets/main_appbar.dart';
+import 'package:dotbook/presentation/widgets/appbar/main_appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

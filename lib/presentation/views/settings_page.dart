@@ -1,4 +1,4 @@
-import 'package:dotbook/presentation/widgets/appbar_with_return_icon.dart';
+import 'package:dotbook/presentation/widgets/appbar/appbar_with_return_icon.dart';
 import 'package:flutter/material.dart';
 
 class SettingsPage extends StatelessWidget {
