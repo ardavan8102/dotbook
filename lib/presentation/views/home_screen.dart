@@ -3,24 +3,29 @@ import 'package:dotbook/consts/strings.dart';
 import 'package:dotbook/core/controllers/home_controller.dart';
 import 'package:dotbook/core/models/chapter_meta.dart';
 import 'package:dotbook/presentation/views/chapter_content.dart';
-import 'package:dotbook/presentation/widgets/appbar_with_return_icon.dart';
 import 'package:dotbook/presentation/widgets/custom_button.dart';
+import 'package:dotbook/presentation/widgets/drawer_menu.dart';
 import 'package:dotbook/presentation/widgets/loading_circle.dart';
+import 'package:dotbook/presentation/widgets/main_appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
 
-  final HomeController controller = Get.find<HomeController>(); // TODO : Add Bindings
+  final HomeController controller = Get.find<HomeController>();
 
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
 
     return Scaffold(
+      key: scaffoldKey,
+      drawer: CustomDrawerMenu(),
       backgroundColor: AppSolidColors.lightBackGround,
-      appBar: AppBarWithReturnIcon(title: AppStrings.brandName),
+      appBar: CustomMainAppBar(title: AppStrings.brandName, globalKey: scaffoldKey),
       body: SafeArea(
         child: Stack(
           children: [
