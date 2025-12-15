@@ -2,6 +2,7 @@ import 'package:dotbook/consts/colors.dart';
 import 'package:dotbook/consts/strings.dart';
 import 'package:dotbook/core/controllers/home_controller.dart';
 import 'package:dotbook/core/models/chapter_meta.dart';
+import 'package:dotbook/presentation/views/chapter_content.dart';
 import 'package:dotbook/presentation/widgets/appbar_with_return_icon.dart';
 import 'package:dotbook/presentation/widgets/custom_button.dart';
 import 'package:dotbook/presentation/widgets/loading_circle.dart';
@@ -11,7 +12,7 @@ import 'package:get/get.dart';
 class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
 
-  final HomeController controller = Get.put(HomeController()); // TODO : Add Bindings
+  final HomeController controller = Get.find<HomeController>(); // TODO : Add Bindings
 
   @override
   Widget build(BuildContext context) {
@@ -41,9 +42,27 @@ class HomeScreen extends StatelessWidget {
                   itemCount: controller.chapters.length,
                   itemBuilder: (_, i) {
                     final chapter = controller.chapters[i];
-                    return Container(
+                    return Padding(
                       padding: EdgeInsets.all(16),
-                      child: chaptersListViewTile(chapter)
+                      child: Material(
+                        color: Colors.transparent,
+                        child: InkWell(
+                          borderRadius: .circular(12),
+                          onTap: () async {
+                            await Future.delayed(Duration(milliseconds: 300));
+                            Get.to(
+                              () => ChapterContentPage(),
+                              arguments: {
+                                'path' : controller.bookPath,
+                                'chapter' : chapter
+                              }
+                            );
+                          },
+                          splashColor: AppSolidColors.darkCreama,
+                          highlightColor: AppSolidColors.darkCreama,
+                          child: chaptersListViewTile(chapter)
+                        )
+                      ),
                     );
                   },
                 ),
@@ -77,7 +96,18 @@ class HomeScreen extends StatelessWidget {
         style: TextStyle(
           color: AppSolidColors.accent,
         ),
-      )
+      ),
+      trailing: Container(
+        padding: EdgeInsets.all(8),
+        decoration: BoxDecoration(
+          color: AppSolidColors.accent,
+          borderRadius: .circular(12)
+        ),
+        child: Icon(
+          Icons.chevron_right,
+          color: Colors.white,
+        ),
+      ),
     );
   }
 
@@ -120,7 +150,7 @@ class HomeScreen extends StatelessWidget {
             child: SizedBox(
               height: size.height * .08,
               child: CustomElevatedButton(
-                function: controller.chapters.clear,
+                function: () => controller.clearLibrary(),
                 msg: 'Clear',
                 bgColor: Colors.red.withValues(alpha: .2),
                 textColor: Colors.red,

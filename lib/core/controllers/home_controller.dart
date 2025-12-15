@@ -55,4 +55,11 @@ class HomeController extends GetxController {
 
     Get.snackbar('Read', 'Open chapter: ${chapters.first.title}');
   }
+
+  void clearLibrary(){
+
+    chapters.clear();
+    bookPath = null;
+
+  }
 }

@@ -1,3 +1,4 @@
+import 'package:dotbook/bindings.dart';
 import 'package:dotbook/core/routes/app_routes.dart';
 import 'package:dotbook/presentation/views/home_screen.dart';
 import 'package:dotbook/presentation/views/splash.dart';
@@ -15,6 +16,7 @@ class AppPages {
     GetPage(
       name: AppRoutes.home,
       page: () => HomeScreen(),
+      binding: HomeBinding()
     ),
 
   ];
