@@ -77,7 +77,7 @@ class _ChapterContentPageState extends State<ChapterContentPage> {
 
       debugPrint('🔴 Persian File');
 
-      chapters = chapterHtmlFiles.entries.where((entry) => entry.key.contains('index_split')).toList();
+      chapters = chapterHtmlFiles.entries.where((entry) => entry.key.contains('.html')).toList();
 
       final chapterSplits = chapters..sort((a, b) => a.key.compareTo(b.key));
       
