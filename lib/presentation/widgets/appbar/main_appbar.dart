@@ -1,6 +1,6 @@
 import 'package:dotbook/consts/colors.dart';
 import 'package:dotbook/core/controllers/drawer_menu_controller.dart';
-import 'package:dotbook/core/routes/app_routes.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -35,9 +35,11 @@ class CustomMainAppBar extends StatelessWidget implements PreferredSizeWidget {
           ),
 
           GestureDetector(
-            onTap: () => Get.toNamed(AppRoutes.settings),
+            onTap: (){
+              
+            },
             child: const Icon(
-              Icons.settings,
+              CupertinoIcons.moon,
             ),
           ),
         ],

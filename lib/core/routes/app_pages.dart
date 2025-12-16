@@ -1,5 +1,6 @@
 import 'package:dotbook/bindings.dart';
 import 'package:dotbook/core/routes/app_routes.dart';
+import 'package:dotbook/presentation/views/file_center.dart';
 import 'package:dotbook/presentation/views/home_screen.dart';
 import 'package:dotbook/presentation/views/settings_page.dart';
 import 'package:dotbook/presentation/views/splash.dart';
@@ -23,6 +24,11 @@ class AppPages {
     GetPage(
       name: AppRoutes.settings,
       page: () => SettingsPage(),
+    ),
+
+    GetPage(
+      name: AppRoutes.fileCenter,
+      page: () => FileCenterPage(),
     ),
 
   ];

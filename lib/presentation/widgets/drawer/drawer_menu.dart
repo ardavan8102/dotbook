@@ -1,9 +1,11 @@
 import 'package:dotbook/consts/colors.dart';
 import 'package:dotbook/consts/strings.dart';
+import 'package:dotbook/core/routes/app_routes.dart';
 import 'package:dotbook/gen/assets.gen.dart';
 import 'package:dotbook/presentation/widgets/drawer/drawer_menu_item.dart';
 import 'package:dotbook/presentation/widgets/drawer/version_text.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class CustomDrawerMenu extends StatelessWidget {
   const CustomDrawerMenu({super.key});
@@ -32,8 +34,9 @@ class CustomDrawerMenu extends StatelessWidget {
                     textTheme: textTheme,
                     label: 'File Center',
                     labelIcon: Icons.folder_zip_outlined,
-                    function: () {
-                      
+                    function: (){
+                      Get.close(1); // pop out drawer before navigation
+                      Get.toNamed(AppRoutes.fileCenter);
                     },
                   ),
 
@@ -50,8 +53,9 @@ class CustomDrawerMenu extends StatelessWidget {
                     textTheme: textTheme,
                     label: 'Settings',
                     labelIcon: Icons.settings_applications_outlined,
-                    function: () {
-                      
+                    function: (){
+                      Get.close(1);
+                      Get.toNamed(AppRoutes.settings);
                     },
                   ),
 
