@@ -1,4 +1,3 @@
-import 'package:dotbook/consts/colors.dart';
 import 'package:dotbook/presentation/widgets/appbar/appbar_with_return_icon.dart';
 import 'package:dotbook/presentation/widgets/cards/file_center_card_box.dart';
 import 'package:flutter/cupertino.dart';
@@ -15,7 +14,6 @@ class FileCenterPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBarWithReturnIcon(title: 'File Center'),
-      backgroundColor: AppSolidColors.lightBackGround,
       body: SafeArea(
         child: Container(
           height: size.height,

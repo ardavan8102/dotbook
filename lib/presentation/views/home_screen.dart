@@ -1,5 +1,6 @@
 import 'package:dotbook/consts/colors.dart';
 import 'package:dotbook/consts/strings.dart';
+import 'package:dotbook/core/controllers/app_theme_controller.dart';
 import 'package:dotbook/core/controllers/home_controller.dart';
 import 'package:dotbook/core/models/chapter_meta.dart';
 import 'package:dotbook/presentation/views/chapter_content.dart';
@@ -10,22 +11,25 @@ import 'package:dotbook/presentation/widgets/appbar/main_appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
 
   final HomeController controller = Get.find<HomeController>();
+  final AppThemeController appThemeController = Get.find<AppThemeController>();
+
+  final _scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
+
     var size = MediaQuery.of(context).size;
+    var textTheme = Theme.of(context).textTheme;
 
     return Scaffold(
-      key: scaffoldKey,
+      key: _scaffoldKey,
       drawer: CustomDrawerMenu(),
-      backgroundColor: AppSolidColors.lightBackGround,
-      appBar: CustomMainAppBar(title: AppStrings.brandName, globalKey: scaffoldKey),
+      appBar: CustomMainAppBar(title: AppStrings.brandName, globalKey: _scaffoldKey),
       body: SafeArea(
         child: Stack(
           children: [
@@ -36,8 +40,11 @@ class HomeScreen extends StatelessWidget {
               }
 
               if (controller.chapters.isEmpty) {
-                return const Center(
-                  child: Text('Select an EPUB file to begin'),
+                return Center(
+                  child: Text(
+                    'Select an EPUB file to begin',
+                    style: textTheme.titleMedium,
+                  ),
                 );
               }
 
@@ -65,7 +72,7 @@ class HomeScreen extends StatelessWidget {
                           },
                           splashColor: AppSolidColors.darkCreama,
                           highlightColor: AppSolidColors.darkCreama,
-                          child: chaptersListViewTile(chapter)
+                          child: chaptersListViewTile(chapter, textTheme)
                         )
                       ),
                     );
@@ -88,7 +95,7 @@ class HomeScreen extends StatelessWidget {
   }
 
   // Chapter Tile
-  ListTile chaptersListViewTile(ChapterMeta chapter) {
+  ListTile chaptersListViewTile(ChapterMeta chapter, TextTheme textTheme) {
     return ListTile(
       contentPadding: EdgeInsets.fromLTRB(16, 8, 16, 8),
       tileColor: AppSolidColors.darkCreama.withValues(alpha: .2),
@@ -98,9 +105,7 @@ class HomeScreen extends StatelessWidget {
       ),
       title: Text(
         chapter.title,
-        style: TextStyle(
-          color: AppSolidColors.accent,
-        ),
+        style: textTheme.labelMedium,
       ),
       trailing: Container(
         padding: EdgeInsets.all(8),
@@ -122,9 +127,16 @@ class HomeScreen extends StatelessWidget {
       padding: const EdgeInsets.all(12),
       height: size.height * .1,
       decoration: BoxDecoration(
-        color: AppSolidColors.lightCreama,
+        color: appThemeController.isDark.value == true
+          ? AppSolidColors.darkBackGround
+          : AppSolidColors.lightCreama,
         border: Border(
-          top: BorderSide(width: 1, color: AppSolidColors.darkCreama),
+          top: BorderSide(
+            width: 1,
+            color: appThemeController.isDark.value == true
+              ? AppSolidColors.darkBorder
+              : AppSolidColors.darkCreama
+          ),
         ),
         boxShadow: [
           BoxShadow(

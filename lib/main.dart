@@ -1,6 +1,6 @@
 import 'package:dotbook/core/routes/app_pages.dart';
 import 'package:dotbook/core/routes/app_routes.dart';
-import 'package:dotbook/core/theme/app_theme.dart';
+import 'package:dotbook/core/theme/main_app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -15,7 +15,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: AppTheme.mainTheme,
+
+      theme: AppTheme.lightTheme,
+      darkTheme: AppTheme.darkTheme,
+      themeMode: ThemeMode.light,
+
       initialRoute: AppRoutes.splash,
       getPages: AppPages.pages,
     );

@@ -37,7 +37,6 @@ class _ChapterContentPageState extends State<ChapterContentPage> {
   Widget build(BuildContext context) {
 
     return Scaffold(
-      backgroundColor: AppSolidColors.lightBackGround,
       appBar: AppBarWithReturnIcon(title: chapter.title),
       body: FutureBuilder<String>(
         future: chapterFuture,
