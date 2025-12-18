@@ -1,4 +1,5 @@
-import 'package:dotbook/core/controllers/scan_storage_controller.dart';
+import 'package:dotbook/core/controllers/file_controllers/scan_storage_controller.dart';
+import 'package:dotbook/presentation/views/file_center/pdf_list_page.dart';
 import 'package:dotbook/presentation/widgets/appbar/appbar_with_return_icon.dart';
 import 'package:dotbook/presentation/widgets/cards/file_center_card_box.dart';
 import 'package:flutter/cupertino.dart';
@@ -54,7 +55,7 @@ class FileCenterPage extends StatelessWidget {
                         label: 'PDF',
                         subtext: '${storageController.pdfCount.value} files',
                         function: () {
-                          
+                          Get.to(PdfListPage());
                         },
                       ),
                     ),

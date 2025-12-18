@@ -2,7 +2,6 @@ import 'package:dotbook/consts/colors.dart';
 import 'package:dotbook/core/controllers/app_theme_controller.dart';
 import 'package:dotbook/core/routes/app_routes.dart';
 import 'package:dotbook/presentation/widgets/custom_icon.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

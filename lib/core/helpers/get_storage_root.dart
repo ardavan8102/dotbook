@@ -10,11 +10,11 @@ class GetStorageRoot {
       ExternalPath.DIRECTORY_DOWNLOAD
     );
 
-    final storagePath = Directory(path);
+    final storagePath = Directory(path); 
 
-    debugPrint('✅ storage path : $storagePath');
+    debugPrint('✅ storage path : $storagePath'); // --> /storage/emulated/0/Download
 
-    return storagePath; // --> /storage/emulated/0/download
+    return storagePath;
 
   }
 

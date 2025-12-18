@@ -10,6 +10,16 @@ class ScanStorageController extends GetxController {
   RxInt epubCount = 0.obs;
   bool isPermissionGranted = false;
 
+  @override
+  void onReady() {
+    super.onReady();
+
+    ever(isPermissionGranted.obs, (_){
+      if (isPermissionGranted) {
+        countFilesByExtension();
+      }
+    });
+  }
 
   @override
   void onInit() {
@@ -36,7 +46,39 @@ class ScanStorageController extends GetxController {
     isPermissionGranted = status.isGranted;
 
     debugPrint('🔃 Permission status : $status');
+    
+    if (status.isDenied || status.isPermanentlyDenied) {
+      _openSettingsDialog();
+    }
   }
+
+
+  void _openSettingsDialog() {
+    Get.dialog(
+      CupertinoAlertDialog(
+        title: const Text('دسترسی نیاز است'),
+        content: const Text(
+          'برای اسکن فایل‌ها، لطفاً دسترسی حافظه را از تنظیمات فعال کنید.',
+        ),
+        actions: [
+          CupertinoDialogAction(
+            child: const Text('لغو'),
+            onPressed: () => Get.back(),
+          ),
+          CupertinoDialogAction(
+            isDefaultAction: true,
+            child: const Text('رفتن به تنظیمات'),
+            onPressed: () async {
+              Get.back();
+              await openAppSettings();
+            },
+          ),
+        ],
+      ),
+      barrierDismissible: false,
+    );
+  }
+
 
 
   Future<void> countFilesByExtension() async {
