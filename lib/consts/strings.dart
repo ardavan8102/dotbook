@@ -1,6 +1,6 @@
 class AppStrings {
 
   static const String brandName = 'DotBook Reader';
-  static const String brandSubText = 'Read Epub Files like a piece of pie';
+  static const String brandSubText = 'Read Books like a piece of pie';
 
 }

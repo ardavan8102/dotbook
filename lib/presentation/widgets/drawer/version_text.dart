@@ -1,4 +1,4 @@
-import 'package:dotbook/helpers/get_application_info.dart';
+import 'package:dotbook/core/helpers/get_application_info.dart';
 import 'package:flutter/material.dart';
 
 class AppVersionText extends StatelessWidget {

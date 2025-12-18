@@ -30,7 +30,7 @@ class CustomDrawerMenuItem extends StatelessWidget {
           splashColor: AppSolidColors.darkCreama,
           shape: RoundedRectangleBorder(borderRadius: .circular(10)),
           title: Text(label),
-          titleTextStyle: textTheme.titleMedium,
+          titleTextStyle: textTheme.titleMedium!.copyWith(fontSize: 16),
           leading: Icon(labelIcon),
           trailing: Icon(Icons.chevron_right),
         ),

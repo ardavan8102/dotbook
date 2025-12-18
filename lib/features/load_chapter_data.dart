@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:dotbook/helpers/clean_persian_file.dart';
+import 'package:dotbook/core/helpers/clean_persian_file.dart';
 import 'package:epubx/epubx.dart';
 import 'package:flutter/material.dart';
 
