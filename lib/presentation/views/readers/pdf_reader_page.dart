@@ -1,4 +1,5 @@
 import 'package:dotbook/presentation/widgets/appbar/appbar_with_return_icon.dart';
+import 'package:dotbook/presentation/widgets/pdf_viewer_bottom_nav.dart';
 import 'package:flutter/material.dart';
 import 'package:pdfx/pdfx.dart';
 
@@ -19,10 +20,10 @@ class PdfReaderPage extends StatefulWidget {
 class _PdfReaderPageState extends State<PdfReaderPage> {
 
   late PdfController _pdfController;
+
   final int _initPage = 1;
 
   int? currentPage;
-
 
   @override
   void initState() {
@@ -42,20 +43,40 @@ class _PdfReaderPageState extends State<PdfReaderPage> {
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: AppBarWithReturnIcon(title: widget.fileName),
-      body: PdfView(
-        controller: _pdfController,
-        builders: PdfViewBuilders<DefaultBuilderOptions>(
-          options: const DefaultBuilderOptions(),
-          documentLoaderBuilder: (_) => const Center(child: CircularProgressIndicator()),
-          pageLoaderBuilder: (_) => const Center(child: CircularProgressIndicator()),
-          pageBuilder: _pageBuilder,
+      body: SafeArea(
+        child: Column(
+          children: [
+            // viewer
+            Expanded(
+              child: PdfView(
+                controller: _pdfController,
+                builders: PdfViewBuilders<DefaultBuilderOptions>(
+                  options: const DefaultBuilderOptions(),
+                  documentLoaderBuilder: (_) => const Center(child: CircularProgressIndicator()),
+                  pageLoaderBuilder: (_) => const Center(child: CircularProgressIndicator()),
+                  pageBuilder: _pageBuilder,
+                ),
+                renderer: (page) {
+                  return page.render(
+                    width: page.width * 2,
+                    height: page.height * 2,
+                    format: PdfPageImageFormat.webp
+                  );
+                },
+              ),
+            ),
+        
+            // navigator
+            PdfViewerBottomNavigation(pdfController: _pdfController)
+          ],
         ),
       ),
     );
   }
-
+  
 
   PhotoViewGalleryPageOptions _pageBuilder(
     BuildContext context,

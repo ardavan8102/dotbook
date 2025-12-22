@@ -37,7 +37,8 @@ class AppBarWithReturnIcon extends StatelessWidget implements PreferredSizeWidge
         title,
         style: TextStyle(
           fontWeight: .bold,
-          color: AppSolidColors.darkCreama
+          color: AppSolidColors.darkCreama,
+          fontSize: 18
         ),
       ),
       centerTitle: true,
