@@ -17,6 +17,7 @@ class ChapterContentPage extends StatefulWidget {
 class _ChapterContentPageState extends State<ChapterContentPage> {
 
   late final String bookPath;
+  
   late final ChapterMeta chapter;
 
   late Future<String> chapterFuture;

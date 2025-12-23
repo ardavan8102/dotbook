@@ -99,7 +99,15 @@ class ScanStorageController extends GetxController {
           if (file.path.toLowerCase().endsWith('.pdf')) {
             pdfCount.value++;
           } else if (file.path.toLowerCase().endsWith('.epub')){
-            epubCount.value++;
+
+            // get file name
+            final fileName = file.path.split('/').last;
+
+            // ignore ".trashed" files for final list
+            if (!fileName.startsWith('.trashed')) {
+              epubCount.value++;
+            }
+
           }
         }
 

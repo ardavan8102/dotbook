@@ -1,7 +1,6 @@
 import 'package:dotbook/core/controllers/app_theme_controller.dart';
 import 'package:dotbook/core/controllers/drawer_menu_controller.dart';
 import 'package:dotbook/core/controllers/file_controllers/pdf_files_controller.dart';
-import 'package:dotbook/core/controllers/file_controllers/scan_storage_controller.dart';
 import 'package:dotbook/core/controllers/home_controller.dart';
 import 'package:get/get.dart';
 
@@ -14,10 +13,9 @@ class HomeBinding extends Bindings {
   }
 }
 
-class FileCenterBindings extends Bindings {
+class PdfListBinding extends Bindings {
   @override
   void dependencies() {
-    Get.put(ScanStorageController(), permanent: true);
     Get.lazyPut(() => PdfFilesController());
   }
 }

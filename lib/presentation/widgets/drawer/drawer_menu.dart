@@ -32,20 +32,11 @@ class CustomDrawerMenu extends StatelessWidget {
                 children: [
                   CustomDrawerMenuItem(
                     textTheme: textTheme,
-                    label: 'File Center',
+                    label: 'PDF Reader',
                     labelIcon: Icons.folder_zip_outlined,
                     function: (){
                       Get.close(1); // pop out drawer before navigation
-                      Get.toNamed(AppRoutes.fileCenter);
-                    },
-                  ),
-
-                  CustomDrawerMenuItem(
-                    textTheme: textTheme,
-                    label: 'Rate The App',
-                    labelIcon: Icons.star_outline,
-                    function: () {
-                      
+                      Get.toNamed(AppRoutes.pdfListPage);
                     },
                   ),
 
@@ -56,15 +47,6 @@ class CustomDrawerMenu extends StatelessWidget {
                     function: (){
                       Get.close(1);
                       Get.toNamed(AppRoutes.settings);
-                    },
-                  ),
-
-                  CustomDrawerMenuItem(
-                    textTheme: textTheme,
-                    label: 'About App',
-                    labelIcon: Icons.question_mark_outlined,
-                    function: () {
-                      
                     },
                   ),
                 ],
