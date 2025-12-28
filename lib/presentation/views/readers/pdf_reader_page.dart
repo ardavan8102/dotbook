@@ -63,6 +63,7 @@ class _PdfReaderPageState extends State<PdfReaderPage> {
                   return page.render(
                     width: page.width * 2,
                     height: page.height * 2,
+                    backgroundColor: '#ffffff',
                     format: PdfPageImageFormat.webp
                   );
                 },

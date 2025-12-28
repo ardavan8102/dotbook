@@ -17,10 +17,13 @@ class CustomDrawerMenuItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+
     return Container(
       margin: EdgeInsets.symmetric(vertical: 18),
       child: Material(
-        color: AppSolidColors.lightCreama,
+        color: isDark ? AppSolidColors.darkBackGround : AppSolidColors.lightCreama,
         shape: RoundedRectangleBorder(
           side: BorderSide(width: 1, color: AppSolidColors.accent),
           borderRadius: .circular(10),

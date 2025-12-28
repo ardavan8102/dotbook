@@ -6,6 +6,8 @@ class LightTheme {
 
   static ThemeData lightTheme = ThemeData(
 
+    brightness: Brightness.light,
+
     scaffoldBackgroundColor: AppSolidColors.lightBackGround,
     primaryColor: AppSolidColors.darkCreama,
 

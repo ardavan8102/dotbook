@@ -42,6 +42,8 @@ class PdfListPage extends StatelessWidget {
                   itemBuilder: (context, index) {
                     
                     final pdf = pdfFilesController.pdfFiles[index];
+
+                    final isDark = Theme.of(context).brightness == Brightness.dark;
           
                     return GestureDetector(
                       onTap: () {
@@ -54,7 +56,7 @@ class PdfListPage extends StatelessWidget {
                       },
                       child: Container(
                         decoration: BoxDecoration(
-                          color: AppSolidColors.lightCreama,
+                          color: isDark ? AppSolidColors.darkBorder : AppSolidColors.lightCreama,
                           borderRadius: .circular(12),
                           border: Border.all(
                             width: 1,

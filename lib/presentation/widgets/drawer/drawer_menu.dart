@@ -6,6 +6,7 @@ import 'package:dotbook/presentation/widgets/drawer/drawer_menu_item.dart';
 import 'package:dotbook/presentation/widgets/drawer/version_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class CustomDrawerMenu extends StatelessWidget {
   const CustomDrawerMenu({super.key});
@@ -19,7 +20,6 @@ class CustomDrawerMenu extends StatelessWidget {
     return Drawer(
       child: Container(
         padding: EdgeInsets.symmetric(vertical: size.height * .08, horizontal: 24),
-        color: AppSolidColors.lightCreama,
         child: Column(
           crossAxisAlignment: .center,
           children: [
@@ -42,11 +42,15 @@ class CustomDrawerMenu extends StatelessWidget {
 
                   CustomDrawerMenuItem(
                     textTheme: textTheme,
-                    label: 'Settings',
-                    labelIcon: Icons.settings_applications_outlined,
-                    function: (){
-                      Get.close(1);
-                      Get.toNamed(AppRoutes.settings);
+                    label: 'Rate the App',
+                    labelIcon: Icons.star_rate_outlined,
+                    function: () async {
+                      if (!await launchUrl(
+                        Uri.parse('https://myket.ir/app/com.dotbook.app'),
+                        mode: LaunchMode.externalApplication
+                      )) {
+                        throw Exception('could not resolve the url');
+                      }
                     },
                   ),
                 ],
@@ -83,7 +87,6 @@ class DrawerHeaderContainer extends StatelessWidget {
         borderRadius: .only(bottomLeft: Radius.circular(16), bottomRight: Radius.circular(16)),
       ),
       padding: const EdgeInsets.only(bottom: 20),
-      margin: const EdgeInsets.only(bottom: 30),
       child: Row(
         mainAxisAlignment: .center,
         spacing: 12,

@@ -6,8 +6,15 @@ class DarkTheme {
 
   static ThemeData darkTheme = ThemeData(
 
+    brightness: Brightness.dark,
+
     scaffoldBackgroundColor: AppSolidColors.darkScaffoldBackground,
+
     primaryColor: AppSolidColors.darkCreama,
+
+    drawerTheme: DrawerThemeData(
+      backgroundColor: Color.fromARGB(255, 37, 37, 37)
+    ),
 
     fontFamily: 'Poppins',
 
