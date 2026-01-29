@@ -5,7 +5,6 @@ import 'package:dotbook/core/controllers/home_controller.dart';
 import 'package:dotbook/core/models/chapter_meta.dart';
 import 'package:dotbook/presentation/views/chapter_content.dart';
 import 'package:dotbook/presentation/widgets/button/custom_button.dart';
-import 'package:dotbook/presentation/widgets/drawer/drawer_menu.dart';
 import 'package:dotbook/presentation/widgets/loading_circle.dart';
 import 'package:dotbook/presentation/widgets/appbar/main_appbar.dart';
 import 'package:flutter/material.dart';
@@ -28,7 +27,6 @@ class HomeScreen extends StatelessWidget {
 
     return Scaffold(
       key: _scaffoldKey,
-      drawer: CustomDrawerMenu(),
       appBar: CustomMainAppBar(title: AppStrings.brandName, globalKey: _scaffoldKey),
       body: SafeArea(
         child: Stack(

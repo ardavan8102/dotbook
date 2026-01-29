@@ -2,7 +2,6 @@ import 'package:dotbook/consts/colors.dart';
 import 'package:dotbook/core/controllers/app_theme_controller.dart';
 import 'package:dotbook/core/controllers/drawer_menu_controller.dart';
 import 'package:dotbook/presentation/widgets/button/change_theme_button.dart';
-import 'package:dotbook/presentation/widgets/custom_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -35,26 +34,16 @@ class CustomMainAppBar extends StatelessWidget implements PreferredSizeWidget {
           color: AppSolidColors.darkCreama
         ),
       ),
-      centerTitle: true,
-      leading: Row(
-        children: [
-          const SizedBox(
-            width: 20,
-          ),
-
-          AppChangeThemeButton(appThemeController: appThemeController, theme: theme),
-        ],
-      ),
+      centerTitle: false,
       actions: [
-        GestureDetector(
-          onTap: () {
-            controller.toggle(globalKey);
-          },
-          child: CustomIcon(icon: Icons.menu)
-        ),
-        
-        const SizedBox(
-          width: 20,
+        Row(
+          children: [
+            AppChangeThemeButton(appThemeController: appThemeController, theme: theme),
+
+            const SizedBox(
+              width: 20,
+            ),
+          ],
         ),
       ],
     );
