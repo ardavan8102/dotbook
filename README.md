@@ -12,6 +12,15 @@ Application for reading and opening epub/pdf files.
 >> pdfx for Pdf rendering
 >>> other : get, path_provider, permission_handler & flutter_wiget_from_html
 
+## 📸 Screenshots
+
+<p align="left">
+
+  <img src="https://github.com/user-attachments/assets/d250d507-ae09-49bd-8896-4f02a5bfe866" width="280" loading="lazy" />
+  <img src="https://github.com/user-attachments/assets/e74d4e56-fa18-4b2c-a9ed-d85b65f0cc9d" width="280" loading="lazy" />
+  <img src="https://github.com/user-attachments/assets/5a2a0e92-c4b5-459d-aff7-c0054dc49097" width="280" loading="lazy" />
+
+</p>
 
 ## 💫 Features
 
