@@ -2,7 +2,7 @@
 
 # DotBook | Epub Reader
 
-Application for reading and opening epub/pdf files.
+Application for reading and opening epub files.
 
 ## 💻 Tech Stack
 
