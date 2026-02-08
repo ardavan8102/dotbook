@@ -24,7 +24,6 @@ Application for reading and opening epub/pdf files.
 
 ## 💫 Features
 
-- Search Automatically for .pdf files in device
 - low-weight structure for epub rendering
 - dynamic settings page
 - light & dark theme
