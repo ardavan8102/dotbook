@@ -9,8 +9,7 @@ Application for reading and opening epub/pdf files.
 **Client:** Dart, Flutter
 
 > epubx for Epub rendering
->> pdfx for Pdf rendering
->>> other : get, path_provider, permission_handler & flutter_wiget_from_html
+>> other : get, path_provider, permission_handler & flutter_wiget_from_html
 
 ## 📸 Screenshots
 
